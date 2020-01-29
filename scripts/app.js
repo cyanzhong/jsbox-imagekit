@@ -12,6 +12,15 @@ const options = [
       }
     },
     {
+      title: "info",
+      handler: () => {
+        const info = $imagekit.info(sample);
+        $quicklook.open({
+          json: JSON.stringify(info)
+        });
+      }
+    },
+    {
       title: "grayscale",
       handler: () => {
         open($imagekit.grayscale(sample));
@@ -154,15 +163,9 @@ const options = [
       }
     },
     {
-      title: "verticalFlip",
+      title: "flip",
       handler: () => {
-        open($imagekit.verticalFlip(sample));
-      }
-    },
-    {
-      title: "horizontalFlip",
-      handler: () => {
-        open($imagekit.horizontalFlip(sample));
+        open($imagekit.flip(sample));
       }
     },
     {
