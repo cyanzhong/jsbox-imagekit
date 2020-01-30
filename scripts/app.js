@@ -208,6 +208,12 @@ const options = [
       handler: () => {
         open($imagekit.rounded(sample, 20));
       }
+    },
+    {
+      title: "circular",
+      handler: () => {
+        open($imagekit.circular(sample));
+      }
     }
   ],
   [
