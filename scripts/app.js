@@ -12,11 +12,33 @@ const options = [
       }
     },
     {
+      title: "render",
+      handler: () => {
+        const options = {
+          size: $size(100, 100),
+          color: $color("#00FF00")
+        }
+        const image = $imagekit.render(options, ctx => {
+          const centerX = 50;
+          const centerY = 50;
+          const radius = 25;
+          ctx.fillColor = $color("#FF0000");
+          ctx.moveToPoint(centerX, centerY - radius);
+          for (let i = 1; i < 5; ++i) {
+            const x = radius * Math.sin(i * Math.PI * 0.8);
+            const y = radius * Math.cos(i * Math.PI * 0.8);
+            ctx.addLineToPoint(x + centerX, centerY - y);
+          }
+          ctx.fillPath();
+        });
+        open(image);
+      }
+    },
+    {
       title: "info",
       handler: () => {
-        const info = $imagekit.info(sample);
         $quicklook.open({
-          json: JSON.stringify(info)
+          json: $imagekit.info(sample)
         });
       }
     },
